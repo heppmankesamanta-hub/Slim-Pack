@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slim Pack | Conteúdo em Movimento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'slim-black': '#0B0B0B',
+              'slim-gray': '#1A1A1A',
+              'slim-petroleum': '#0F2A44',
+              'slim-tech-blue': '#1F6AE1',
+              'slim-purple': '#6A2FE8',
+              'slim-magenta': '#E23A8B',
+              'slim-orange': '#F47C20',
+              'slim-yellow': '#FFD23F',
+            },
+            fontFamily: {
+              sans: ['Montserrat', 'sans-serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-out forwards',
+              'reveal-up': 'revealUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+              'glow-pulse': 'glowPulse 4s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+              revealUp: {
+                '0%': { opacity: '0', transform: 'translateY(24px)', filter: 'blur(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' }
+              },
+              glowPulse: {
+                '0%, 100%': { opacity: '0.3' },
+                '50%': { opacity: '0.6' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #0B0B0B;
+        color: #FFFFFF;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      .bg-atmospheric {
+        background-color: #0B0B0B;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      .grain-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: none;
+        z-index: 99;
+        opacity: 0.05;
+        background-image: url("https://www.transparenttextures.com/patterns/p6-dark.png");
+      }
+
+      /* GRADIENTES OFICIAIS */
+      .grad-dark-tech {
+        background: linear-gradient(135deg, #0B0B0B 0%, #0F2A44 60%, #1F6AE1 100%);
+      }
+
+      .grad-pack-core {
+        background: linear-gradient(90deg, #1F6AE1, #6A2FE8, #E23A8B, #F47C20, #FFD23F);
+        filter: blur(100px);
+        opacity: 0.15;
+      }
+
+      .grad-flow {
+        background: linear-gradient(to bottom, #1A1A1A 0%, #0F2A44 50%, #1A1A1A 100%);
+      }
+
+      .grad-tech-flow {
+        background: linear-gradient(135deg, #0F2A44 0%, #1F6AE1 50%, #6A2FE8 100%);
+      }
+
+      .grad-cta {
+        background: linear-gradient(90deg, #F47C20 0%, #FFD23F 100%);
+      }
+
+      /* TRATAMENTO OBRIGATÓRIO DE IMAGENS */
+      .market-bg-layer {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        overflow: hidden;
+      }
+      
+      .market-bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: blur(40px) contrast(80%) brightness(35%) grayscale(30%);
+        transform: scale(1.1);
+        opacity: 0.4;
+      }
+
+      .market-bg-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, 
+          rgba(11, 11, 11, 0.85) 0%, 
+          rgba(15, 42, 68, 0.6) 50%,
+          rgba(11, 11, 11, 0.9) 100%
+        );
+        z-index: -1;
+      }
+
+      /* SISTEMA DE REVELAÇÃO DINÂMICA */
+      .reveal { 
+        opacity: 0; 
+        transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); 
+        will-change: transform, opacity;
+      }
+      
+      .reveal-up { transform: translateY(40px); }
+      .reveal-down { transform: translateY(-40px); }
+      .reveal-left { transform: translateX(-40px); }
+      .reveal-right { transform: translateX(40px); }
+      .reveal-zoom { transform: scale(0.9); }
+      
+      /* Efeito 3D de Surgimento */
+      .reveal-3d { 
+        transform: perspective(1200px) rotateX(25deg) scale(0.7) translateY(60px); 
+        filter: blur(10px);
+      }
+
+      .reveal.active { 
+        opacity: 1; 
+        transform: translate(0,0) scale(1) rotateX(0deg); 
+        filter: blur(0);
+      }
+
+      .accent-glow { filter: drop-shadow(0 0 15px rgba(31, 106, 225, 0.3)); }
+      .cta-glow { filter: drop-shadow(0 0 10px rgba(244, 124, 32, 0.4)); }
+      
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: #0B0B0B; }
+      ::-webkit-scrollbar-thumb { background: #1F6AE1; border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: #F47C20; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slim-black">
+    <div class="grain-overlay"></div>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

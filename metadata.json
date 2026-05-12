@@ -1,0 +1,7 @@
+{
+  "name": "Remix: Copy of Slim Pack - B2B Content Hub",
+  "description": "Distribuidora oficial, hub de conteúdo e parceira estratégica B2B para ISP\u0027S e operadoras de telecomunicações.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
